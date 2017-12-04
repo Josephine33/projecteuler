@@ -8,7 +8,7 @@
 int day_of_week(int year, int month, int day) {
     int d = day;
  
-    double m = (double) ((month - 3) % 12 + 1);
+    int m = (month + 9) % 12 + 1;
     int Y;
     if(m > 10) Y = year - 1;
     else Y = year;
@@ -24,7 +24,7 @@ int day_of_week(int year, int month, int day) {
 long months_start_range(int day, int year_start, int year_end) {
     unsigned long total = 0;
     int year, month;
-    for(year = year_start; year < year_end; year++) {
+    for(year = year_start; year <= year_end; year++) {
         for(month = 1; month <= 12; month++) {
             if(day_of_week(year, month, 1)==day) total++;
         }
